@@ -33,3 +33,9 @@ For opimum performance the result set from last play would be cached/saved as ne
 If the result set would not be shuffled the unique word should be 'naan'.
 
 As we shuffle result set, the winning word for player would the the one having even number of letters and the one not having complete sub-word.
+
+##Unit tests
+
+` cd api `
+
+` phpunit GhostGameTest.php `
