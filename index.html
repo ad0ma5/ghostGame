@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ghost Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+<!-- start container -->
+<div id="start_container" class="container" style="display:none;">
+  <h2>Ghost Game</h2>
+  <p>To start enter name</p>
+  <form role="form">
+    <div class="form-group">
+      <label for="user">Name:</label>
+      <input type="text" name="user" class="form-control" id="user">
+    </div>
+    <div class="form-group">
+      <label for="start"></label>
+      <input type="submit" class="btn btn-primary btn-block" id="start" value="Start">
+    </div>
+  </form>
+</div>
+<!-- ~start container -->
+<!-- game container -->
+<div id="game_container" class="container" style="display:none;">
+  <h2>Ghost Game </h2>
+  <p>In the game of Ghost, two players take turns building up an English word from left to right. Each player adds one letter per turn. The goal is to NOT complete the spelling of a word: if you add a letter that completes a word (of 4+ letters), or if you add a letter that produces a string that cannot be extended into a word, you lose.</p>
+  <p>
+      <form class="form-inline" role="form">
+
+          <label for="word">Word:</label>
+          <input type="text" disabled="disabled" id="word"  class="form-control"  />
+          <label for="ghost">Player '<span id="username"></span>':</label>
+          <input type="text" disabled="disabled" id="ghost"  class="form-control" />
+          <label for="ai_ghost">AI:</label>
+          <input type="text" disabled="disabled" id="ai_ghost"  class="form-control" />
+          <input type="submit" class="btn btn-primary" id="new" value="New game">
+      </form>
+  </p>
+  <form role="form">
+    <div class="form-group">
+      <label for="letter">Next letter:</label>
+      <input maxlength="1" type="text" class="form-control" id="letter">
+    </div>
+    <div class="form-group">
+      <label for="start"></label>
+      <input type="submit" class="btn btn-primary btn-block" id="next" value="Next">
+    </div>
+  </form>
+</div>
+<!-- ~game container -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Ghost Message</h4>
+      </div>
+      <div class="modal-body">
+        <p id="error_msg"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="modal_button">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ~Modal -->
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
+
+</html>
