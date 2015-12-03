@@ -11,7 +11,7 @@
 
 ##Structure
 
-*README.md - this file
+(*)README.md - this file
 
 *index.html - front-end web-app
 
