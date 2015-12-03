@@ -2,6 +2,7 @@
 /*
  *
  * */
+define (PATH_TO_DICTIONARY, "../../../firstClarity/word.lst");
 session_start();
 include "GhostGame.php";
 $output = array();
@@ -35,7 +36,7 @@ if(empty($_GET['user']) && empty($_SESSION['user'])){
 if(empty($output['error']) && !empty($_GET['word'])){
     //word with next letter
     $word_in = $_GET['word'];
-    $config = array("data_path"=>"../../word.lst");
+    $config = array("data_path"=>PATH_TO_DICTIONARY);
     $game = new GhostGame($config);
     $word_out = $game->play($word_in);
     $output = array_merge($output,$word_out);
