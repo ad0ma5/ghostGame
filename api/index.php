@@ -2,8 +2,8 @@
 /*
  *
  * */
-define ('PATH_TO_DICTIONARY', "../../../firstClarity/word.lst");
 session_start();
+include "config.php";
 include "GhostGame.php";
 $output = array();
 
