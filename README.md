@@ -11,17 +11,17 @@
 
 ##Structure
 
-README.md - this file
+*README.md - this file
 
-index.html - front-end web-app
+*index.html - front-end web-app
 
-api/config.php - configuration file
+*api/config.php - configuration file
 
-api/GhostGame.php - ghost game class
+*api/GhostGame.php - ghost game class
 
-api/index.php - main api entry-point
+*api/index.php - main api entry-point
 
-js/app.js - jquery webapp code
+*js/app.js - jquery webapp code
 
 ##Notes
 
