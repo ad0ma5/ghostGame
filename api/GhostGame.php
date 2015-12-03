@@ -92,7 +92,7 @@ class GhostGame{
         return $output;
     }
     /*
-     * resolveGHOST -
+     * resolveGHOST - add letter to the player's ghost value
      * */
     public function addGHOST($player){
         $ghost = $_SESSION[$player];
@@ -140,7 +140,7 @@ class GhostGame{
         return substr(substr($word_win, $word_length),0,1);
     }
     /*
-     * isOdd - winning condidtion: word to be even
+     * isOdd - winning condidtion: word to be even if the player starts the game
      * */
     private function isOdd($word){
         $number = strlen($word);

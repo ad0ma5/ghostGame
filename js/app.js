@@ -6,16 +6,17 @@ function apiCall(url){
     $.get( url, function( data ) {
         data_obj = $.parseJSON(data);
         //console.log( data_obj );
+        //round finished
         if(data_obj.status && data_obj.status == 'nok'){
-            $("#error_msg").html('this round is finished: '+data_obj.output);
+            $("#error_msg").html('This round is finished: '+data_obj.output);
             $('#myModal').modal('show');
             $("#word").val('');
             $("#ghost").val(data_obj.ghost);
             $("#ai_ghost").val(data_obj.ai_ghost);
         }else{
-            //session exists
+          //if session exists (game in progress)
           if(data_obj.user){
-                //alert( "Load was performed." + data );
+
                 $("#game_container").show();
                 $("#start_container").hide();
                 $("#username").html(data_obj.user);
@@ -25,11 +26,12 @@ function apiCall(url){
                 $("#ghost").val(data_obj.ghost);
                 $("#ai_ghost").val(data_obj.ai_ghost);
                 $("#letter").focus();
-          }else{
+          }else{ //start session
                 $("#start_container").show();
                 $("#game_container").hide();
           }
         }
+        // if player lost?
         if(data_obj.ghost === "ghost" || data_obj.ai_ghost === "ghost"){
                 $("#error_msg").html(data_obj.output+' You lost the game of GHOST');
                 $('#myModal').modal('show');
@@ -41,6 +43,7 @@ function apiCall(url){
 
                 });
         }
+        // if AI lost?
         if(data_obj.ai_ghost === "ghost"){
                 $("#error_msg").html(data_obj.output+' AI lost the game of GHOST');
                 $('#myModal').modal('show');
@@ -55,21 +58,28 @@ function apiCall(url){
     });
 }
 /*
- *
+ * Begin game session
  * */
 $( "#start" ).on( "click", function(event) {
     event.preventDefault();
+
+    $("#word").val('');
+    $("#ghost").val('');
+    $("#ai_ghost").val(data_obj.ai_ghost);
+
     var name = $("#user").val();
     if(name == ''){
         $("#error_msg").html('your name is empty');
         $('#myModal').modal('show');
+
     }else{
         apiCall("api/?user="+name);
+        $("#user").val('');
     }
     console.log( $( this ).text() );
 });
 /*
- *
+ * Game next step
  * */
 $( "#next" ).on( "click", function(event) {
     event.preventDefault();
@@ -83,10 +93,10 @@ $( "#next" ).on( "click", function(event) {
         //alert('word= '+word+letter);
         apiCall("api/?word="+word+letter);
     }
-    console.log( $( this ).text() );
+
 });
 /*
- *
+ * Restart game session
  * */
 $( "#new" ).on( "click", function(event) {
     event.preventDefault();
@@ -94,7 +104,6 @@ $( "#new" ).on( "click", function(event) {
         //alert('word= '+word+letter);
         apiCall("api/?new");
 
-    console.log( $( this ).text() );
 });
 /*
  * Initial ajax call
