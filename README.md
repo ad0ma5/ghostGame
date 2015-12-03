@@ -17,8 +17,9 @@ README.md               --> this file
 index.html              --> front-end web-app
 api/                    --> all of the source files for the api
   config.php            --> configuration file
-  api/GhostGame.php     --> ghost game class
-  api/index.php         --> main api entry-point
+  GhostGame.php         --> ghost game class
+  GhostGameTest.php     --> game tests
+  index.php             --> main api entry-point
 js/                     --> js code
    app.js               --> jquery webapp code
 ```
